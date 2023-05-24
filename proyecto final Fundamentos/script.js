@@ -12,7 +12,12 @@
 
     function verificarRestriccion() {
       const estadoSeleccionado = document.getElementById("estados").value;
+    //Verificando el Estado Seleccionado
+      console.log(estadoSeleccionado)
       const OndeckRes = OnDeck.includes(estadoSeleccionado);
+    //Verificando que nos reporte un valor booleando de true or false si encuentra
+    //El valor del array
+      console.log(OndeckRes)
       const FundingCircleRes = FundingCircle.includes(estadoSeleccionado);
       const FWRes = FW.includes(estadoSeleccionado);
       const KapitusRes = Kapitus.includes(estadoSeleccionado);
@@ -27,40 +32,88 @@
       let resultado = "";
 
       if (OndeckRes) {
-        resultado += "El estado está restringido por OnDeck.<br>";
+        console.log(OndeckRes)
+        resultado = "El estado está restringido por OnDeck.<br>";
       }
       if (FundingCircleRes) {
-        resultado += "El estado está restringido por el FundingCircle 2.<br>";
+        resultado += "El estado está restringido por FundingCircle .<br>";
       }
       if (FWRes) {
-        resultado += "El estado está restringido por el FundingCircle 2.<br>";
+        resultado += "El estado está restringido por FundWorks .<br>";
       }
       if (KapitusRes) {
-        resultado += "El estado está restringido por el FundingCircle 2.<br>";
+        resultado += "El estado está restringido por Kapitus .<br>";
       }
       if (ByzfunderRes) {
-        resultado += "El estado está restringido por el FundingCircle 2.<br>";
+        resultado += "El estado está restringido por Byzfunder .<br>";
       }
       if (IOURes) {
-        resultado += "El estado está restringido por el FundingCircle 2.<br>";
+        resultado += "El estado está restringido por IOU .<br>";
       }
       if (ApexRes) {
-        resultado += "El estado está restringido por el FundingCircle 2.<br>";
+        resultado += "El estado está restringido por Apex/Influx .<br>";
       }
       if (EverestRes) {
-        resultado += "El estado está restringido por el FundingCircle 2.<br>";
+        resultado += "El estado está restringido por Everest .<br>";
       }
       if (TorroRes) {
-        resultado += "El estado está restringido por el FundingCircle 2.<br>";
+        resultado += "El estado está restringido por Torro .<br>";
       }
       // Agrega más condiciones según tus arrays de prestamistas
-
-      if (resultado == ""); {
-        resultado = "El estado no está restringido por ningún prestamista.";
-      }
-
+     // if (!!resultado); {
+        //console.log(resultado)
+      //!!resultado += "El estado no está restringido por ningún prestamista.";
+    //  }
       document.getElementById("resultado").innerHTML = resultado;
     }
+
     function borrarResultado() {
       document.getElementById("resultado").innerHTML = "";
+    }
+
+
+    function verificarRestriccion2() {
+      const estadoSeleccionado = document.getElementById("estados").value;
+    
+      let resultado2 = "";
+    
+      switch (estadoSeleccionado) {
+        case "":
+          resultado2 = "Selecciona un estado.";
+          break;
+        case "AL":
+        case "AK":
+          resultado2 = "El estado no está restringido por ningún prestamista.";
+          break;
+        case "NV":
+        case "ND":
+        case "SD":
+          resultado2 = "El estado está restringido por OnDeck.";
+          break;
+        case "AR":
+          resultado2 = "El estado está restringido por FW y Kapitus.";
+          break;
+        case "NY":
+          resultado2 = "El estado está restringido por Kapitus.";
+          break;
+        case "CA":
+          resultado2 = "El estado está restringido por Byzfunder y Apex.";
+          break;
+        case "MT":
+        case "VT":
+        case "HI":
+          resultado2 = "El estado está restringido por IOU.";
+          break;
+        case "VA":
+          resultado2 = "El estado está restringido por Apex y Everest.";
+          break;
+        case "MA":
+          resultado2 = "El estado está restringido por Torro.";
+          break;
+        default:
+          resultado2 = "El estado no está restringido por ningún prestamista.";
+          break;
+      }
+    
+      document.getElementById("resultado2").innerHTML = resultado2;
     }
