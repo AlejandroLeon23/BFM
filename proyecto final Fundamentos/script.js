@@ -60,7 +60,7 @@
         resultado += "El estado está restringido por Torro .<br>";
       }
       //Else con resultado negado lógicamente
-      else (!resultado); {
+      if (!resultado){
       console.log(resultado)
       resultado += "El estado no está restringido por ningún prestamista.";
       }
