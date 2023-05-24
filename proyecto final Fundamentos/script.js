@@ -59,11 +59,11 @@
       if (TorroRes) {
         resultado += "El estado está restringido por Torro .<br>";
       }
-      // Agrega más condiciones según tus arrays de prestamistas
-     // if (!!resultado); {
-        //console.log(resultado)
-      //!!resultado += "El estado no está restringido por ningún prestamista.";
-    //  }
+      //Else con resultado negado lógicamente
+      else (!resultado); {
+      console.log(resultado)
+      resultado += "El estado no está restringido por ningún prestamista.";
+      }
       document.getElementById("resultado").innerHTML = resultado;
     }
 
